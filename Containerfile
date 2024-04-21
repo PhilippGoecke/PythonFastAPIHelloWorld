@@ -6,7 +6,7 @@ RUN apt update && apt upgrade -y \
   # install tools
   && apt install -y --no-install-recommends git curl ca-certificates \
   # install python dependencies
-  && apt install -y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev \
+  && apt install -y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev libsqlite3-dev \
   # make image smaller
   && rm -rf "/var/lib/apt/lists/*" \
   && rm -rf /var/cache/apt/archives
