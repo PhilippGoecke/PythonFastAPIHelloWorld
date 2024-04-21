@@ -33,6 +33,10 @@ RUN pip install fastapi \
   && pip install pydantic \
   && pip install uvicorn \
   && pip freeze
+  #&& pip freeze > requirements.txt \
+  #&& cat requirements.txt
+
+# RUN pip install -r requirements.txt
 
 COPY main.py .
 
