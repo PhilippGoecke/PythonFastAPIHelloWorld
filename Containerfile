@@ -13,11 +13,12 @@ RUN apt update && apt upgrade -y \
 
 RUN useradd -m pythonuser
 
-WORKDIR /home/pythonuser
+ENV HOME /home/pythonuser
+WORKDIR $HOME
 USER pythonuser
 
 RUN git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-ENV PATH /home/pythonuser/.pyenv/shims:/home/pythonuser/.pyenv/bin:$PATH
+ENV PATH $HOME/.pyenv/shims:$HOME/.pyenv/bin:$PATH
 
 ENV PYTHON_VERSION 3.12.3
 RUN pyenv install --list | grep -A7 $PYTHON_VERSION \
@@ -26,7 +27,7 @@ RUN pyenv install --list | grep -A7 $PYTHON_VERSION \
   && pyenv rehash \
   && python --version
 
-WORKDIR /home/pythonuser/app
+WORKDIR $HOME/app
 
 RUN pip install fastapi \
   && pip install pydantic \
