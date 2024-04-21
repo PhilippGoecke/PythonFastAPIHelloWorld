@@ -31,7 +31,7 @@ WORKDIR /home/pythonuser/app
 RUN pip install fastapi \
   && pip install pydantic \
   && pip install uvicorn \
-  && pip freeze \
+  && pip freeze
 
 COPY main.py .
 
