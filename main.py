@@ -3,5 +3,6 @@ from fastapi import FastAPI
 app = FastAPI()
 
 @app.get("/")
-async def root():
-  return {"message": "Hello World"}
+async def root(name: str = None):
+  message = f"Hello {name}!" if name else "Hello World!"
+  return {"message": message}
