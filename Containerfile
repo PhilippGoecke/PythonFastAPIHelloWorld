@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim as build-env
+FROM debian:trixie-slim as build-env
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -20,7 +20,7 @@ USER pythonuser
 RUN git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 ENV PATH $HOME/.pyenv/shims:$HOME/.pyenv/bin:$PATH
 
-ENV PYTHON_VERSION 3.12.3
+ENV PYTHON_VERSION 3.14.0
 RUN pyenv install --list | grep -A7 $PYTHON_VERSION \
   && pyenv install $PYTHON_VERSION \
   && pyenv global $PYTHON_VERSION \
